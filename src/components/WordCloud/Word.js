@@ -2,15 +2,17 @@ import React, { Component } from 'react';
 
 export default class Word extends Component {
     render() {
-        const {x, y, fontSize} = this.props;
+        const {x, y, fontSize, fontFamily, rotate, label} = this.props;
         const style = {
-            fontSize
+            fontSize,
+            fontFamily
         }
         return (
             <text
                 style={style}
-                transform={`translate(${x}, ${y})`}>
-                { this.props.children }
+                transform={`translate(${x}, ${y}) rotate(${rotate})`}
+                textAnchor="middle">
+                { label }
             </text>
         );
     }

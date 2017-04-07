@@ -18,16 +18,15 @@ export default class WordCloud extends Component {
     }
     
     update_d3(props) {
+        const { data } = this.props;
         this.cloud
             .size([500, 500])
-            .words([
-                "Hello", "world", "normally", "you", "want", "more", "words",
-                "than", "this"].map(function(d) {
+            .words(data.text.map(function(d) {
                 return {text: d, size: 10 + Math.random() * 90, test: "haha"};
             }))
             .padding(5)
-            .rotate(function() { return ~~(Math.random() * 2) * 90; })
-            .font("Impact")
+            .rotate(() => 0)
+            .font("Roboto")
             .fontSize(function(d) { return d.size; })
             .on("end", (cloudWords) => {
                 this.setState({ cloudWords })
@@ -38,11 +37,23 @@ export default class WordCloud extends Component {
     render() {
         const { cloudWords } = this.state
         console.log('cloudWords', cloudWords)
-        const words = _map(cloudWords, ({size, x, y, text}) => <Word key={text} fontSize={size} x={x} y={y}>{text}</Word>);
+        const words =
+            _map(cloudWords, ({size, x, y, text, font, rotate}) =>
+                <Word
+                    key={text}
+                    fontSize={size}
+                    fontFamily={font}
+                    rotate={rotate}
+                    x={x}
+                    y={y}>
+                    {text}
+                </Word>);
         return (
-            <Cloud>
-                { words }
-            </Cloud>
+            <svg width="500" height="500">
+                <g transform="translate(250, 250)">
+                    { React.children.map(this.props.children, (child) => React.cloneElement(child, { x: 0, y: 0 })) }
+                </g>
+            </svg>
         );
     }
 }
