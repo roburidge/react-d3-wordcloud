@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { WordCloud, Word } from '../components/WordCloud';
+import { WordCloud } from '../components/WordCloud';
 import _map from 'lodash/map';
 import * as d3 from 'd3';
 
 export default class Topics extends Component {
     state = {
-        rawData: [],
         wordArray: []
     }
 
@@ -13,18 +12,6 @@ export default class Topics extends Component {
         this.loadRawData();
     }
 
-    processData(data) {
-        const wordArray = data.topics.map((word) => {
-            return {
-                label: word.label,
-            }
-        })
-        return {
-            rawData: data.topics,
-            wordArray,
-        }
-    }
-    
     loadRawData() {
         console.log('data', this.props.data)
         d3.json(this.props.data, (error, data) => {
@@ -35,18 +22,31 @@ export default class Topics extends Component {
         })
     }
 
+    processData({ topics }) {
+        const wordArray = topics.map((word) => {
+            return {
+                label: word.label,
+            }
+        })
+        return {
+            wordArray
+        }
+    }
+
     render() {
-        const { rawData, wordArray } = this.state
-        console.log('rawData', rawData)
+        const { wordArray } = this.state
         console.log('wordArray', wordArray)
 
-        if (!rawData.length) {
-            return <h2>Loading data...</h2>;
+        if (!wordArray.length) {
+            return <h2>Loading data... { wordArray.length }</h2>;
         }
         return (
-            <WordCloud>
-                { wordArray.map((options, key) => <Word key={ key } label={options.label} />) }
-            </WordCloud>
-        )
+            <div>
+                <WordCloud
+                    width={500}
+                    height={500}
+                    data={wordArray}/>
+            </div>
+        );
     }
 }

@@ -1,19 +1,28 @@
-import React, { Component } from 'react';
+import React, { PropTypes } from 'react';
 
-export default class Word extends Component {
-    render() {
-        const {x, y, fontSize, fontFamily, rotate, label} = this.props;
-        const style = {
-            fontSize,
-            fontFamily
-        }
-        return (
-            <text
-                style={style}
-                transform={`translate(${x}, ${y}) rotate(${rotate})`}
-                textAnchor="middle">
-                { label }
-            </text>
-        );
-    }
-}
+Word.propTypes = {
+    x: PropTypes.number.isRequired,
+    y: PropTypes.number.isRequired,
+    fontSize: PropTypes.number.isRequired,
+    fontFamily: PropTypes.string.isRequired,
+    rotate: PropTypes.number,
+    textAnchor: PropTypes.oneOf(['start', 'middle', 'end', 'inherit'])
+};
+
+Word.defaultProps = {
+    rotate: 0,
+    textAnchor: 'middle'
+};
+
+function Word({ x, y, fontSize, fontFamily, children, rotate, textAnchor }) {
+    return (
+        <text
+            style={{ fontSize, fontFamily }}
+            transform={`translate(${x}, ${y}) rotate(${rotate})`}
+            textAnchor={textAnchor}>
+            { children }
+        </text>
+    );
+};
+
+export default Word;

@@ -18,11 +18,11 @@ export default class WordCloud extends Component {
     }
     
     update_d3(props) {
-        const { data } = this.props;
+        const { data, width, height } = this.props;
         this.cloud
-            .size([500, 500])
-            .words(data.text.map(function(d) {
-                return {text: d, size: 10 + Math.random() * 90, test: "haha"};
+            .size([width, height])
+            .words(data.map(function(d) {
+                return {text: d.label, size: (0.6 + Math.random()) * 20, test: "haha"};
             }))
             .padding(5)
             .rotate(() => 0)
@@ -35,7 +35,8 @@ export default class WordCloud extends Component {
     }
     
     render() {
-        const { cloudWords } = this.state
+        const { width, height } = this.props;
+        const { cloudWords } = this.state;
         console.log('cloudWords', cloudWords)
         const words =
             _map(cloudWords, ({size, x, y, text, font, rotate}) =>
@@ -49,11 +50,9 @@ export default class WordCloud extends Component {
                     {text}
                 </Word>);
         return (
-            <svg width="500" height="500">
-                <g transform="translate(250, 250)">
-                    { React.children.map(this.props.children, (child) => React.cloneElement(child, { x: 0, y: 0 })) }
-                </g>
-            </svg>
+            <Cloud width={width} height={height}>
+                { words }
+            </Cloud>
         );
     }
 }
