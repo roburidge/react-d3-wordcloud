@@ -20,11 +20,11 @@ export default class WordCloud extends Component {
     }
 
     update_d3(props) {
-        const { data, width, height } = this.props
+        const { data, width, height } = props
         d3Cloud()
             .size([width, height])
             .words(data.map(function(d) {
-                return {text: d.label, size: d.size, color: d.color, test: 'haha'}
+                return {text: d.label, ...d, test: 'haha'}
             }))
             .padding(5)
             .rotate(() => 0)
@@ -38,20 +38,20 @@ export default class WordCloud extends Component {
     }
 
     render() {
-        const { width, height } = this.props
+        const { width, height, updateTopic } = this.props
         const { cloudWords } = this.state
         const words =
-            cloudWords.map((word) =>
+            cloudWords.map((topic) =>
                 <Word
-                    key={word.text}
-                    fontSize={word.size}
-                    color={word.color}
-                    fontFamily={word.font}
-                    rotate={word.rotate}
-                    x={word.x}
-                    y={word.y}
-                    onClick={() => this.props.updateTopic(word)}>
-                    {word.text}
+                    key={topic.text}
+                    fontSize={topic.size}
+                    color={topic.color}
+                    fontFamily={topic.font}
+                    rotate={topic.rotate}
+                    x={topic.x}
+                    y={topic.y}
+                    onClick={() => updateTopic(topic)}>
+                    {topic.text}
                 </Word>)
         return (
             <Cloud width={width} height={height}>

@@ -44,9 +44,9 @@ export function updateCloudData (topics, fontSizes) {
         return {
             cloudData: topics.map((word) => {
                 return {
-                    label: word.label,
                     size: getFontSize(word.volume, volumeRange, fontSizes),
                     color: getFontColor(word.sentimentScore),
+                    ...word,
                 }
             }),
         }
