@@ -16,12 +16,12 @@ export default class App extends Component {
   render() {
     console.log(this.state.selectedTopic)
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+      <div className="c-app">
+        <div className="c-app__header">
+          <img src={logo} className="c-app__logo" alt="logo" />
           <h2>React D3 Word Cloud</h2>
         </div>
-        <div style={{width: '98%', maxWidth: 1200, margin: '40px auto'}}>
+        <div className="c-app__main-content">
           <Topics data="./data/topics.json" updateTopic={this.updateTopic} />
           <MetaList topic={this.state.selectedTopic} />
         </div>
