@@ -13,6 +13,8 @@
     "semi": [1, "never"],
     "no-trailing-spaces": [1],
     "no-var": [1],
-    "prefer-const": [1]
+    "prefer-const": [1],
+    "react/no-unknown-property": [1],
+    "react/prop-types": [1]
   }
 }
