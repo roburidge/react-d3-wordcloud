@@ -14,19 +14,14 @@ export default class WordCloud extends Component {
         height: React.PropTypes.number,
     }
     state = { cloudWords: [] }
-    cloud = d3Cloud()
 
     componentWillMount() {
         this.update_d3(this.props)
     }
 
-    componentWillUpdate(nextProps, nextState) {
-        this.update_d3(nextProps)
-    }
-
     update_d3(props) {
         const { data, width, height } = this.props
-        this.cloud
+        d3Cloud()
             .size([width, height])
             .words(data.map(function(d) {
                 return {text: d.label, size: d.size, color: d.color, test: 'haha'}
