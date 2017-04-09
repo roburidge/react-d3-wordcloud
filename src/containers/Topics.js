@@ -45,7 +45,6 @@ export default class Topics extends Component {
                     width={500}
                     height={500}
                     data={wordArray}/>
-                <div onClick={()=>{}}>Hello</div>
             </div>
         )
     }
