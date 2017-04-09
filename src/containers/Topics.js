@@ -4,8 +4,10 @@ import * as d3 from 'd3'
 
 export default class Topics extends Component {
     state = {
-        wordArray: []
+        wordArray: [],
     }
+
+
 
     componentWillMount() {
         this.loadRawData()
