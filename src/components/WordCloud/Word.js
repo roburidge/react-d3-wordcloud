@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import './Word.css'
 
 Word.propTypes = {
     x: PropTypes.number.isRequired,
@@ -19,6 +20,7 @@ Word.defaultProps = {
 function Word({ x, y, fontSize, color, fontFamily, children, rotate, textAnchor, onClick }) {
     return (
         <text
+            className="c-text"
             style={{ fontSize, fontFamily, fill: color }}
             transform={`translate(${x}, ${y}) rotate(${rotate})`}
             textAnchor={textAnchor}

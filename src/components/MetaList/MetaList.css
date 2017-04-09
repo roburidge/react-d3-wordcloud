@@ -1,6 +1,41 @@
 .c-meta-list {
     border: 3px solid gray;
+    padding: 0 20px;
 
     float: right;
-    width: 25%;
+    width: 30%;
+}
+
+.c-meta-list__heading {
+    font-size: 20px;
+}
+
+.c-list-item {
+    line-height: 1.5em;
+}
+
+.c-list-item__label {
+    display:inline;
+}
+
+.c-list-item__label:after {
+    content: ":"
+}
+
+.c-list-item--heavy {
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.c-list-item__value {
+    display: inline;
+    margin-left: 5px;
+}
+
+.c-list-item--positive .c-list-item__value {
+    color: green;
+}
+
+.c-list-item--negative .c-list-item__value {
+    color: red;
 }
