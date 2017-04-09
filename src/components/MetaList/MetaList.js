@@ -2,39 +2,34 @@ import React, { PropTypes } from 'react'
 import './MetaList.css'
 
 MetaList.propTypes = {
-    label: PropTypes.string,
-    volume: PropTypes.number,
-    sentiment: PropTypes.object,
+    topic: PropTypes.object,
 }
 
 MetaList.defaultProps = {
-    label: null,
-    volume: 0,
-    sentiment: {
-        'negative': 0,
-        'neutral': 0,
-        'positive': 0,
-    },
+    topic: null,
 }
 
-function MetaList ({label, volume, sentiment}) {
+function MetaList ({ topic }) {
+    if (topic === null) {
+        return null
+    }
     return (
         <div className="c-meta-list">
-            <h1>Information on topic "{label}"</h1>
+            <h1>Information on topic "{topic.label}"</h1>
             <dl>
                 <div>
                     <dt>Total Mentions</dt>
-                    <dd>{volume}</dd>
+                    <dd>{topic.volume || 0}</dd>
                 </div>
                 <div>
                     <dt>Positive Mentions</dt>
-                    <dd>{sentiment.positive}</dd>
+                    <dd>{topic.sentiment.positive || 0}</dd>
 
                     <dt>Neutral Mentions</dt>
-                    <dd>{sentiment.neutral}</dd>
+                    <dd>{topic.sentiment.neutral || 0}</dd>
 
                     <dt>Negative Mentions</dt>
-                    <dd>{sentiment.negative}</dd>
+                    <dd>{topic.sentiment.negative || 0}</dd>
                 </div>
             </dl>
         </div>
