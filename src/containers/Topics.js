@@ -22,22 +22,24 @@ export default class Topics extends Component {
     }
 
     createCloudData({ topics }) {
-        const fontSizes = [20, 24, 34, 45, 56, 112]
+        const fontSizes = [15, 24, 34, 45, 56, 112]
         this.setState(updateCloudData(topics, fontSizes))
     }
 
-    render() {
-        const { cloudData } = this.state
+    renderLoading() {
+        return <h2 className="hello">Loading data...</h2>
+    }
 
-        if (!cloudData.length) {
-            return <h2 className="hello">Loading data... { cloudData.length }</h2>
-        }
+    renderContent() {
+        return <WordCloud width={700} height={300} data={this.state.cloudData} />
+    }
+
+    render() {
         return (
             <div className="c-topics">
-                <WordCloud
-                    width={700}
-                    height={300}
-                    data={cloudData} />
+                { this.state.cloudData.length
+                    ? this.renderContent()
+                    : this.renderLoading() }
             </div>
         )
     }
