@@ -12,13 +12,13 @@ Word.propTypes = {
 
 Word.defaultProps = {
     rotate: 0,
-    textAnchor: 'middle'
+    textAnchor: 'middle',
 }
 
-function Word({ x, y, fontSize, fontFamily, children, rotate, textAnchor }) {
+function Word({ x, y, fontSize, color, fontFamily, children, rotate, textAnchor }) {
     return (
         <text
-            style={{ fontSize, fontFamily }}
+            style={{ fontSize, fontFamily, fill: color }}
             transform={`translate(${x}, ${y}) rotate(${rotate})`}
             textAnchor={textAnchor}>
             { children }

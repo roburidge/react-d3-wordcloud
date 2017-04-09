@@ -22,9 +22,26 @@ export default class Topics extends Component {
     }
 
     processData({ topics }) {
+        const volumeRange = d3.extent(topics, (d) => d.volume)
+        const quantizeSizes = d3.scaleQuantize()
+            .domain(volumeRange)
+            .range([20, 24, 34, 45, 56, 112])
+
+        const setColor = (score) => {
+            switch (true) {
+                case score < 40:
+                    return 'red'
+                case score > 60:
+                    return 'green'
+                default:
+                    return 'gray'
+            }
+        }
         const wordArray = topics.map((word) => {
             return {
                 label: word.label,
+                size: quantizeSizes(word.volume),
+                color: setColor(word.sentimentScore),
             }
         })
         return {
@@ -42,9 +59,9 @@ export default class Topics extends Component {
         return (
             <div>
                 <WordCloud
-                    width={500}
-                    height={500}
-                    data={wordArray}/>
+                    width={700}
+                    height={300}
+                    data={wordArray} />
             </div>
         )
     }
