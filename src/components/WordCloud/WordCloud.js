@@ -45,7 +45,6 @@ export default class WordCloud extends Component {
     render() {
         const { width, height } = this.props
         const { cloudWords } = this.state
-        console.log('cloudWords', cloudWords)
         const words =
             cloudWords.map(({size, x, y, text, font, rotate, color}) =>
                 <Word

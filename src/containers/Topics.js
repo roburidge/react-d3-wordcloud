@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Topics.css'
 import { WordCloud } from '../components/WordCloud'
 import * as d3 from 'd3'
 import { updateCloudData } from '../lib/utilities.js'
@@ -32,7 +33,7 @@ export default class Topics extends Component {
             return <h2 className="hello">Loading data... { cloudData.length }</h2>
         }
         return (
-            <div>
+            <div className="c-topics">
                 <WordCloud
                     width={700}
                     height={300}
