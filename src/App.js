@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Topics from './containers/Topics';
+import React, { Component } from 'react'
+import logo from './logo.svg'
+import './App.css'
+import Topics from './containers/Topics'
 
 export default class App extends Component {
   render() {
@@ -16,6 +16,6 @@ export default class App extends Component {
         </p>
         <Topics data="./data/topics.json" />
       </div>
-    );
+    )
   }
 }

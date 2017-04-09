@@ -1,0 +1,18 @@
+/**
+ * Usesse eslint-loader so even warnings are very visible.
+ * This is why we only use "WARNING" level for potential errors,
+ * and we don"t use [1] level at all.
+ */
+{
+  "root": true,
+  "parser": "babel-eslint",
+  "extends": "react-app",
+  "rules": {
+    "quotes": [1, "single"],
+    "jsx-quotes": [1, "prefer-double"],
+    "semi": [1, "never"],
+    "no-trailing-spaces": [1],
+    "no-var": [1],
+    "prefer-const": [1]
+  }
+}

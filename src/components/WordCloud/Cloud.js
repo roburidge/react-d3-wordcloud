@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes } from 'react'
 
 Cloud.propTypes = {
   width: PropTypes.number.isRequired,
@@ -16,7 +16,7 @@ function Cloud({ width, height, children }) {
                 { children }
             </g>
         </svg>
-    );
+    )
 }
 
-export default Cloud;
+export default Cloud

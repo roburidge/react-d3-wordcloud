@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-import { WordCloud } from '../components/WordCloud';
-import _map from 'lodash/map';
-import * as d3 from 'd3';
+import React, { Component } from 'react'
+import { WordCloud } from '../components/WordCloud'
+import * as d3 from 'd3'
 
 export default class Topics extends Component {
     state = {
@@ -9,7 +8,7 @@ export default class Topics extends Component {
     }
 
     componentWillMount() {
-        this.loadRawData();
+        this.loadRawData()
     }
 
     loadRawData() {
@@ -17,7 +16,7 @@ export default class Topics extends Component {
         d3.json(this.props.data, (error, data) => {
             // if (error) throw error;
             if (data !== undefined) {
-                this.setState(this.processData(data));
+                this.setState(this.processData(data))
             }
         })
     }
@@ -38,7 +37,7 @@ export default class Topics extends Component {
         console.log('wordArray', wordArray)
 
         if (!wordArray.length) {
-            return <h2>Loading data... { wordArray.length }</h2>;
+            return <h2 className="hello">Loading data... { wordArray.length }</h2>
         }
         return (
             <div>
@@ -46,7 +45,8 @@ export default class Topics extends Component {
                     width={500}
                     height={500}
                     data={wordArray}/>
+                <div onClick={()=>{}}>Hello</div>
             </div>
-        );
+        )
     }
 }
