@@ -6,7 +6,7 @@ Cloud.propTypes = {
   children: PropTypes.oneOfType([
     React.PropTypes.array,
     React.PropTypes.element,
-  ])
+  ]),
 }
 
 function Cloud({ width, height, children }) {

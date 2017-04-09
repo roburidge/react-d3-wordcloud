@@ -6,8 +6,9 @@ Word.propTypes = {
     fontSize: PropTypes.number.isRequired,
     fontFamily: PropTypes.string.isRequired,
     children: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
     rotate: PropTypes.number,
-    textAnchor: PropTypes.oneOf(['start', 'middle', 'end', 'inherit'])
+    textAnchor: PropTypes.oneOf(['start', 'middle', 'end', 'inherit']),
 }
 
 Word.defaultProps = {

@@ -5,6 +5,9 @@ import * as d3 from 'd3'
 import { updateCloudData } from '../lib/utilities.js'
 
 export default class Topics extends Component {
+    static propTypes = {
+        data: React.PropTypes.string.isRequired,
+    }
     state = {
         cloudData: [],
     }
