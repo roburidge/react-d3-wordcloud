@@ -34,7 +34,14 @@ export default class Topics extends Component {
     }
 
     renderContent() {
-        return <WordCloud width={700} height={300} data={this.state.cloudData} />
+        return (
+            <WordCloud
+                width={700}
+                height={300}
+                data={this.state.cloudData}
+                updateTopic={this.props.updateTopic}
+            />
+        )
     }
 
     render() {

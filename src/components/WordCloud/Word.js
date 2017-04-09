@@ -16,12 +16,13 @@ Word.defaultProps = {
     textAnchor: 'middle',
 }
 
-function Word({ x, y, fontSize, color, fontFamily, children, rotate, textAnchor }) {
+function Word({ x, y, fontSize, color, fontFamily, children, rotate, textAnchor, onClick }) {
     return (
         <text
             style={{ fontSize, fontFamily, fill: color }}
             transform={`translate(${x}, ${y}) rotate(${rotate})`}
-            textAnchor={textAnchor}>
+            textAnchor={textAnchor}
+            onClick={onClick}>
             { children }
         </text>
     )

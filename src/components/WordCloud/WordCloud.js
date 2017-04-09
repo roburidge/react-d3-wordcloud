@@ -41,16 +41,17 @@ export default class WordCloud extends Component {
         const { width, height } = this.props
         const { cloudWords } = this.state
         const words =
-            cloudWords.map(({size, x, y, text, font, rotate, color}) =>
+            cloudWords.map((word) =>
                 <Word
-                    key={text}
-                    fontSize={size}
-                    color={color}
-                    fontFamily={font}
-                    rotate={rotate}
-                    x={x}
-                    y={y}>
-                    {text}
+                    key={word.text}
+                    fontSize={word.size}
+                    color={word.color}
+                    fontFamily={word.font}
+                    rotate={word.rotate}
+                    x={word.x}
+                    y={word.y}
+                    onClick={() => this.props.updateTopic(word)}>
+                    {word.text}
                 </Word>)
         return (
             <Cloud width={width} height={height}>
