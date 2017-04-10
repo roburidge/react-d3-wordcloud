@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { Cloud, Word } from './'
 import d3Cloud from 'd3-cloud'
 
@@ -9,9 +9,10 @@ export default class WordCloud extends Component {
         height: 500,
     }
     static propTypes = {
-        data: React.PropTypes.array.isRequired,
-        width: React.PropTypes.number,
-        height: React.PropTypes.number,
+        data: PropTypes.array.isRequired,
+        updateTopic: PropTypes.func.isRequired,
+        width: PropTypes.number,
+        height: PropTypes.number,
     }
     state = { cloudWords: [] }
 

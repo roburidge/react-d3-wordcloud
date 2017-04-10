@@ -39,6 +39,12 @@ function MetaList ({ topic }) {
     )
 }
 
+ListItem.propTypes = {
+    label: PropTypes.string.isRequired,
+    value: PropTypes.number,
+    className: PropTypes.string,
+}
+
 function ListItem ({ label, value, className }) {
     return (
         <div className={`c-list-item ${className}`}>

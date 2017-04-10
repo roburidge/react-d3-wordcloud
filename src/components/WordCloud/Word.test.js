@@ -3,24 +3,23 @@ import ReactDOM from 'react-dom'
 import { shallow } from 'enzyme'
 import Word from './Word'
 
+const word = 'Topic'
+const wordComponent = (
+    <Word
+        x={10} y={10}
+        fontSize={20}
+        fontFamily="Arial"
+        color="rebeccapurple"
+        onClick={() => {}}>{word}</Word>
+)
+
 it('renders without crashing', () => {
   const div = document.createElement('div')
-  ReactDOM.render(
-      <Word
-        x={10} y={10}
-        fontSize={20}
-        fontFamily="Arial"
-        color="rebeccapurple">Topic</Word>
-    , div)
+  ReactDOM.render(wordComponent, div)
 })
 
-const word = 'Topic'
-const wrapper = shallow(
-      <Word
-        x={10} y={10}
-        fontSize={20}
-        fontFamily="Arial"
-        color="rebeccapurple">{word}</Word>)
+
+const wrapper = shallow(wordComponent)
 
 it('renders text node', () => {
   expect(wrapper.contains(word)).toEqual(true)

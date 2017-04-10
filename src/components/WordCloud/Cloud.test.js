@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { shallow } from 'enzyme'
-import {Cloud, Word} from './'
+import {Cloud} from './'
 
 const wrapper = shallow(
     <Cloud width={500} height={500}><text /></Cloud>
@@ -27,5 +27,4 @@ it('to have width and height props', () => {
 
 it('to have group transform prop equal to 50% width, height', () => {
     expect(wrapper.find('g').prop('transform')).toBe('translate(250, 250)')
-    
 })

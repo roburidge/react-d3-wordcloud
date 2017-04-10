@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import './Topics.css'
 import { WordCloud } from '../components/WordCloud'
 import * as d3 from 'd3'
@@ -6,7 +6,8 @@ import { updateCloudData } from '../lib/utilities.js'
 
 export default class Topics extends Component {
     static propTypes = {
-        data: React.PropTypes.string.isRequired,
+        data: PropTypes.string.isRequired,
+        updateTopic: PropTypes.func.isRequired,
     }
     state = {
         cloudData: [],
