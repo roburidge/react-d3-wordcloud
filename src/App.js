@@ -14,7 +14,6 @@ export default class App extends Component {
   }
 
   render() {
-    console.log(this.state.selectedTopic)
     return (
       <div className="c-app">
         <div className="c-app__header">

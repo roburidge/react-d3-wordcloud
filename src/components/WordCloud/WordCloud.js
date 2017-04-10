@@ -29,7 +29,7 @@ export default class WordCloud extends Component {
             .padding(5)
             .rotate(() => 0)
             .random(() => 0.5)
-            .font('Roboto')
+            .font('Roboto, sans-serif')
             .fontSize(function(d) { return d.size })
             .on('end', (cloudWords) => {
                 this.setState({ cloudWords })
