@@ -1,11 +1,6 @@
 import { getFontSize, getFontColor, updateCloudData } from './utilities'
 import { forEach } from 'lodash'
 
-// it('renders without crashing', () => {
-//   const div = document.createElement('div')
-//   ReactDOM.render(<App />, div)
-// })
-
 const fontSizes = [10, 12, 16, 20, 24]
 it('returns the correct font size', () => {
     expect(
