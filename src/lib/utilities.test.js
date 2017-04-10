@@ -21,3 +21,22 @@ forEach(scores, (value, key) =>
         ).toEqual(value)
     })
 )
+
+const mockTopic = [{
+    id: '1751295897__Berlin',
+    label: 'Berlin',
+    volume: 165,
+    sentimentScore: 65,
+}]
+
+const expectedProperties = {
+    cloudData: [{
+        size: 24,
+        color: 'green',
+    }],
+}
+it('returns size and color state properties', () => {
+    expect(
+        updateCloudData(mockTopic, fontSizes)()
+    ).toMatchObject(expectedProperties)
+})
