@@ -1,4 +1,7 @@
-.c-topics {
-    float: left;
-    width: 70%;
+
+@media screen and (min-width: 950px) {
+    .c-topics {
+        float: left;
+        width: 70%;
+    }
 }
