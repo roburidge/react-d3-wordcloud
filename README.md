@@ -47,5 +47,5 @@ react-d3-wordcloud/
 * `components/`:
   Components in named folders and export themselves via an index.js file allowing us to import them form `components/ComponenFolder`. I've tried to keep the WordCloud modular by splitting it into a main `WordCloud` component that takes an array of topic data and uses d3 to produce svg positions that it feeds into `Word` & `Cloud` components. The `Word` & `Cloud` components are exported too allowing for more flexability in future use.
 
-  * `containers/`
-   Containers are higher level components that are project specific. The topics container processes the topic data into a format that can be used by `WordCloud`
+* `containers/`
+  Containers are higher level components that are project specific. The topics container processes the topic data into a format that can be used by `WordCloud`
