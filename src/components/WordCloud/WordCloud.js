@@ -24,7 +24,7 @@ export default class WordCloud extends Component {
         d3Cloud()
             .size([width, height])
             .words(data.map(function(d) {
-                return {text: d.label, ...d, test: 'haha'}
+                return {text: d.label, ...d}
             }))
             .padding(5)
             .rotate(() => 0)
