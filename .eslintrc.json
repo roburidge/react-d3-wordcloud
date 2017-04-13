@@ -1,4 +1,4 @@
-module.exports = {
+{
   // Prevent parent eslintrc from interfering
   "root": true,
   "extends": [
@@ -8,6 +8,7 @@ module.exports = {
     "prettier/react"
   ],
   "env": {
+    "browser": true,
     "es6": true,
     "jest": true
   },
