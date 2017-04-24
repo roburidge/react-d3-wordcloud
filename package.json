@@ -59,7 +59,8 @@
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check"
   },
   "jest": {
     "collectCoverageFrom": [

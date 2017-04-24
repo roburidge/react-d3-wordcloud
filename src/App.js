@@ -1,17 +1,17 @@
-import React, { Component } from 'react'
-import logo from './logo.svg'
-import './App.css'
-import Topics from './containers/Topics'
-import { MetaList } from './components/MetaList'
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import Topics from './containers/Topics';
+import { MetaList } from './components/MetaList';
 
 export default class App extends Component {
   state = {
     selectedTopic: null,
-  }
+  };
 
-  updateTopic = (topic) => {
-    this.setState({selectedTopic: topic})
-  }
+  updateTopic = topic => {
+    this.setState({ selectedTopic: topic });
+  };
 
   render() {
     return (
@@ -25,6 +25,6 @@ export default class App extends Component {
           <MetaList topic={this.state.selectedTopic} />
         </div>
       </div>
-    )
+    );
   }
 }

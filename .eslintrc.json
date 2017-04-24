@@ -26,6 +26,9 @@
     // TODO: consider adding jsx-a11y and import
   ],
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": ["error", {
+      "trailingComma": "all",
+      "singleQuote": true
+    }]
   }
 }

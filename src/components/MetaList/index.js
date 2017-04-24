@@ -1,1 +1,1 @@
-export { default as MetaList } from './MetaList'
+export { default as MetaList } from './MetaList';
